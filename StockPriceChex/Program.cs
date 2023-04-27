@@ -1,4 +1,6 @@
 ﻿using System.Net.Http.Headers;
 using StockPriceChex;
 
-StockInfo.StockPriceAsync();
+var stock1 = StockInfo.StockPrice();
+
+//stock1.StockPrice

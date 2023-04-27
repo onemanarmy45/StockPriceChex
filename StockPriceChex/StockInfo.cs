@@ -10,7 +10,7 @@ namespace StockPriceChex
 		{
 		}
 
-		public static async Task StockPriceAsync()
+		public static Stock StockPrice()
 		{
             Console.WriteLine("Please enter a stock ticker symbol: ");
 
@@ -24,6 +24,16 @@ namespace StockPriceChex
             var response = client.Execute(request);
 
             Console.WriteLine(response.Content);
+
+            var stockInfo = new Stock();
+            stockInfo.StockPrice = double.Parse(JObject.Parse(response.Content).GetValue("price").ToString());
+            //more parse
+
+            Console.WriteLine("");
+
+            Console.WriteLine(stockInfo.StockPrice);
+
+            return stockInfo;
         }
 	}
 }
